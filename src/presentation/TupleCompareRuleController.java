@@ -114,9 +114,9 @@ public class TupleCompareRuleController {
 		
     }
     
-	private void sendRule(BusinessRule bRule) throws UnknownHostException, IOException {
-		ClientClass client = new ClientClass();
-		client.sendBusinessRule(bRule);
-	}
+//	private void sendRule(BusinessRule bRule) throws UnknownHostException, IOException {
+//		ClientClass client = new ClientClass();
+//		client.sendBusinessRule(bRule);
+//	}
 
 }

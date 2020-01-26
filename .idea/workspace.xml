@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="547741e1-614b-499d-b45f-aa77cb523127" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bin/domain/BusinessRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/BusinessRule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/domain/BusinessRuleType.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/BusinessRuleType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/domain/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/domain/Column.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/Column.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/domain/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/domain/Operator.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/Operator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/domain/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/Table.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/domain/Value.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/Value.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRuleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRuleDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRulePostgresDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRulePostgresDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRuleTypeDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRuleTypeDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRuleTypePostgresDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRuleTypePostgresDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/CategoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/CategoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/CategoryPostgresDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/CategoryPostgresDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ColumnDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ColumnDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ColumnPostgresDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ColumnPostgresDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/PostgresBaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/PostgresBaseDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/TableDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/TableDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/TablePostgresDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/TablePostgresDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ValueDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ValueDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ValuePostgresDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ValuePostgresDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresGetColumnNamesTargetDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresGetColumnNamesTargetDb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresGetColumnNamesToolDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresGetColumnNamesToolDb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresGetTableNamesTargetDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresGetTableNamesTargetDb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresGetTableNamesToolDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresGetTableNamesToolDb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresInsertBusinessRuleToolDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresInsertBusinessRuleToolDb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/presentation/AttributeCompareRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/AttributeCompareRuleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/presentation/AttributeListRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/AttributeListRuleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/presentation/AttributeRangeRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/AttributeRangeRuleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/presentation/FirstPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/FirstPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/presentation/InterEntityCompareRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/InterEntityCompareRuleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/presentation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/presentation/SearchExistingBusinessRulesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/SearchExistingBusinessRulesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/presentation/TupleCompareRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/TupleCompareRuleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/service/ClientClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/service/ClientClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/service/IDUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/service/IDUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/service/PostgresGetColumns.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/service/PostgresGetColumns.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/service/PostgresGetTables.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/service/PostgresGetTables.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/service/PostgresInsertBusinessRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/service/PostgresInsertBusinessRule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/service/WindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/service/WindowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/AttributeCompareRuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/AttributeCompareRuleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/AttributeListRuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/AttributeListRuleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/AttributeRangeRuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/AttributeRangeRuleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/FirstPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/FirstPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/InterEntityCompareRuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/InterEntityCompareRuleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/TupleCompareRuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/TupleCompareRuleController.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/classes/" />
+    <ignored path="$PROJECT_DIR$/bin/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/presentation/ModifyRule.fxml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="204">
+                  <caret line="30" column="94" selection-start-line="30" selection-start-column="94" selection-end-line="30" selection-end-column="94" />
+                </state>
+              </provider>
+              <provider editor-type-id="JavaFX-Scene-Builder" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/presentation/FirstPage.fxml">
+              <provider editor-type-id="text-editor">
+                <state relative-caret-position="187">
+                  <caret line="11" column="200" selection-start-line="11" selection-start-column="200" selection-end-line="11" selection-end-column="200" />
+                </state>
+              </provider>
+              <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/presentation/AttributeOtherRule.fxml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="534">
+                  <caret line="34" column="32" selection-start-line="34" selection-end-line="35" />
+                </state>
+              </provider>
+              <provider editor-type-id="JavaFX-Scene-Builder" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/presentation/FirstPageController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="221">
+                  <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/presentation/ModifyRuleController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="260">
+                  <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="221">
+                  <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/presentation/AttributeOtherRuleController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="200">
+                  <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ruletype</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/presentation/TupleCompareRuleController.java" />
+        <option value="$PROJECT_DIR$/src/presentation/InterEntityCompareRuleController.java" />
+        <option value="$PROJECT_DIR$/src/presentation/AttributeListRuleController.java" />
+        <option value="$PROJECT_DIR$/src/presentation/FirstPage.fxml" />
+        <option value="$PROJECT_DIR$/src/presentation/AttributeCompareRuleController.java" />
+        <option value="$PROJECT_DIR$/src/presentation/AttributeRangeRule.fxml" />
+        <option value="$PROJECT_DIR$/src/presentation/AttributeOtherRule.fxml" />
+        <option value="$PROJECT_DIR$/src/presentation/AttributeRangeRuleController.java" />
+        <option value="$PROJECT_DIR$/src/presentation/AttributeOtherRuleController.java" />
+        <option value="$PROJECT_DIR$/src/presentation/ModifyRuleController.java" />
+        <option value="$PROJECT_DIR$/src/presentation/FirstPageController.java" />
+        <option value="$PROJECT_DIR$/src/presentation/ModifyRule.fxml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/TosadGenerator.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_6.xml" />
+        <option value="$PROJECT_DIR$/.idea/libraries/org_postgresql_postgresql_42_2_9.xml" />
+        <option value="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TosadGenerator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TosadFrontEnd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TosadGenerator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TosadFrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TosadGenerator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TosadFrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TosadGenerator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TosadFrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="persistence" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TosadGenerator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TosadFrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="presentation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TosadGenerator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TosadFrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TosadGenerator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.gradle.running" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="presentation.Main" />
+      <module name="TosadGenerator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="547741e1-614b-499d-b45f-aa77cb523127" name="Default Changelist" comment="" />
+      <created>1579964932760</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579964932760</updated>
+      <workItem from="1579964941396" duration="2646000" />
+      <workItem from="1579969656917" duration="8170000" />
+      <workItem from="1579983253885" duration="4336000" />
+      <workItem from="1579991267019" duration="4318000" />
+      <workItem from="1580050755871" duration="4097000" />
+      <workItem from="1580054892130" duration="4997000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="28564000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12483221" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3711048" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/service/ClientClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/TupleCompareRuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="116" selection-start-line="116" selection-start-column="2" selection-end-line="119" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeCompareRule.fxml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeListRule.fxml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/InterEntityCompareRule.fxml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/SearchExistingBusinessRules.fxml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/TupleCompareRule.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="152" selection-start-line="21" selection-start-column="152" selection-end-line="21" selection-end-column="152" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeListRuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeRangeRule.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="80" selection-start-line="51" selection-start-column="80" selection-end-line="51" selection-end-column="80" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/BusinessRuleType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/PostgresGetTables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeRangeRuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4024#4031#0" expanded="true" />
+            <element signature="e#4083#4090#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeCompareRuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="114" column="34" lean-forward="true" selection-start-line="114" selection-start-column="34" selection-end-line="114" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/FirstPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ModifyRuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/InterEntityCompareRuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="118" column="23" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/FirstPage.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="200" selection-start-line="11" selection-start-column="200" selection-end-line="11" selection-end-column="200" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeOtherRule.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="34" column="32" selection-start-line="34" selection-end-line="35" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ModifyRule.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="30" column="94" selection-start-line="30" selection-start-column="94" selection-end-line="30" selection-end-column="94" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeOtherRuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>TosadGenerator</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>org.postgresql:postgresql:42.2.9</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

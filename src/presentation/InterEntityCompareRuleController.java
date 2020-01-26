@@ -123,10 +123,10 @@ public class InterEntityCompareRuleController {
 		
     }
     
-	private void sendRule(BusinessRule bRule) throws IOException {
-		ClientClass client = new ClientClass();
-		client.sendBusinessRule(bRule);
-	}
+//	private void sendRule(BusinessRule bRule) throws IOException {
+//		ClientClass client = new ClientClass();
+//		client.sendBusinessRule(bRule);
+//	}
     
 
 }

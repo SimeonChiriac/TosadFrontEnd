@@ -138,7 +138,6 @@ public class AttributeRangeRuleController {
 		
 		ArrayList<Column> columnNames = new ArrayList<Column>();
 		
-		
 		Table table = new Table();
 		table.setName(chooseTable.getValue());
 		tableNames.add(table);

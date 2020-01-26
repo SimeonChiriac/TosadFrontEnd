@@ -87,8 +87,8 @@ public class AttributeListRuleController {
 			listOfValues.add(enteredValue.getText());
 	}
  	
-	private void sendRule(BusinessRule bRule) throws IOException {
-		ClientClass client = new ClientClass();
-		client.sendBusinessRule(bRule);
-	}
+//	private void sendRule(BusinessRule bRule) throws IOException {
+//		ClientClass client = new ClientClass();
+//		client.sendBusinessRule(bRule);
+//	}
 }

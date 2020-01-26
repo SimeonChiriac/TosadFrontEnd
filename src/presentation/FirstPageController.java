@@ -27,8 +27,7 @@ public class FirstPageController {
     private ObservableList<String> ruleTypes = FXCollections.observableArrayList(AttributeRangeRule, AttributeCompareRule, TupleCompareRule, 
     		InterEntityCompareRule, TupleCompareRule, TupleOtherRule, AttributeListRule, AttributeOtherRule, EntityOtherRule, ModifyRule);
     
-    public void initialize() {
-        chooseRuleType.setItems(ruleTypes);
+    public void initialize(){chooseRuleType.setItems(ruleTypes);
     }
 
     @FXML
@@ -61,6 +60,15 @@ public class FirstPageController {
     		listController.createAttributeListRuleUI(AttributeListRule);
     	}
 
+		if (ruleType.equals(AttributeOtherRule)) {
+			AttributeOtherRuleController attrOtherController = new AttributeOtherRuleController();
+			attrOtherController.createAttributeOtherRuleUI(AttributeOtherRule);
+		}
+
+		if (ruleType.equals(ModifyRule)) {
+			ModifyRuleController modController = new ModifyRuleController();
+			modController.createModifyRuleUI(ModifyRule);
+		}
     }
     
     

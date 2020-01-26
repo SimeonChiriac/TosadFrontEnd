@@ -116,12 +116,11 @@ public class AttributeCompareRuleController {
 		Pane mainWindow = FXMLLoader.load(Main.class.getResource("AttributeCompareRule.fxml"));
 		stage.setScene(new Scene(mainWindow));
 		stage.show();
-		
     }
     
-	private void sendRule(BusinessRule bRule) throws UnknownHostException, IOException {
-		ClientClass client = new ClientClass();
-		client.sendBusinessRule(bRule);
-	}
+//	private void sendRule(BusinessRule bRule) throws UnknownHostException, IOException {
+//		ClientClass client = new ClientClass();
+//		client.sendBusinessRule(bRule);
+//	}
 
 }
