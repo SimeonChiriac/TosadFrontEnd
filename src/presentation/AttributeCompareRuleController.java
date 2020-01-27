@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -58,13 +59,16 @@ public class AttributeCompareRuleController {
 
     @FXML
     void selectConstraint(ActionEvent event) {
-    	 chosenConstraint = chooseConstraint.getValue();
+    	if(chooseConstraint.getValue() != null) {
+			chosenConstraint = chooseConstraint.getValue();
+			System.out.println(chooseConstraint.getValue());
+		}
     }
     
-    @FXML
-    void selectColumn(ActionEvent event) {
-    	
-    }
+//    @FXML
+//    void selectColumn(ActionEvent event) {
+//
+//    }
 
     @FXML
     void generateRule(ActionEvent event) throws UnknownHostException, IOException {
@@ -75,19 +79,25 @@ public class AttributeCompareRuleController {
 //		bRule.setCompareRule(chosenConstraint);
 //		bRule.setMaxValue(enteredValue.getText());
 //		sendRule(bRule);
+
+		Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+		confirmAlert.setHeaderText("rule is aangemaakt");
+		confirmAlert.showAndWait();
     }
 
 
     @FXML
     void selectTable(ActionEvent event) throws SQLException {
-		namesColumn = FXCollections.observableArrayList();
-		PostgresGetColumns postgresColumns = new PostgresGetColumns();
-		columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
-		for (Column column : columnNames) {
-			namesColumn.add(column.getName());
+		if(chooseTable.getValue() != null) {
+			namesColumn = FXCollections.observableArrayList();
+			PostgresGetColumns postgresColumns = new PostgresGetColumns();
+			columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
+			for (Column column : columnNames) {
+				namesColumn.add(column.getName());
+			}
+			chooseColumn.setItems(namesColumn);
 		}
-		
-		chooseColumn.setItems(namesColumn);
+
     }
     
     public void setConstraints() {

@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="646.0" style="-fx-background-color: #351010#351010;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.AttributeRangeRuleController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="646.0" style="-fx-background-color: #351010#351010;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.AttributeRangeRuleController">
    <children>
-      <ComboBox fx:id="chooseTable" layoutX="25.0" layoutY="153.0" prefHeight="27.0" prefWidth="212.0" promptText="Choose table" style="-fx-background-radius: 20; -fx-padding: 10px;" />
+      <ComboBox fx:id="chooseTable" layoutX="25.0" layoutY="153.0" onAction="#selectTable" prefHeight="27.0" prefWidth="212.0" promptText="Choose table" style="-fx-background-radius: 20; -fx-padding: 10px;" />
       <TextArea layoutX="14.0" layoutY="27.0" prefHeight="57.0" prefWidth="329.0" style="-fx-background-color: grey; -fx-background-radius: 10px;" text="Business rule generator">
          <font>
             <Font name="Times New Roman Bold" size="28.0" />
@@ -28,16 +28,11 @@
             <Font name="Times New Roman" size="13.0" />
          </font>
       </TextField>
-      <TextField fx:id="rangeTo" layoutX="324.0" layoutY="268.0" prefHeight="27.0" prefWidth="161.0" style="-fx-background-radius: 10px;" text="range to">
+      <TextField fx:id="rangeTo" layoutX="373.0" layoutY="268.0" prefHeight="27.0" prefWidth="161.0" style="-fx-background-radius: 10px;" text="range to">
          <font>
             <Font name="Times New Roman" size="13.0" />
          </font>
       </TextField>
-      <Button layoutX="89.0" layoutY="206.0" mnemonicParsing="false" onAction="#selectTable" prefHeight="35.0" prefWidth="148.0" style="-fx-background-radius: 10px; -fx-background-color: #adff8a#adff8a;" text="Select table">
-         <font>
-            <Font name="Sana Regular" size="18.0" />
-         </font>
-      </Button>
       <Label layoutX="47.0" layoutY="326.0" prefHeight="17.0" prefWidth="161.0" text="Business rule name:" textFill="WHITE">
          <font>
             <Font name="Times New Roman" size="18.0" />
@@ -48,7 +43,12 @@
             <Font name="Times New Roman" size="13.0" />
          </font>
       </TextField>
-      <ChoiceBox fx:id="ruleOperator" layoutX="208.0" layoutY="268.0" prefHeight="27.0" prefWidth="86.0" />
-      <ChoiceBox fx:id="chooseTriggerOrConstraint" layoutX="436.0" layoutY="350.0" prefHeight="27.0" prefWidth="86.0" />
+      <ChoiceBox fx:id="ruleOperator" layoutX="208.0" layoutY="268.0" prefHeight="31.0" prefWidth="138.0" />
+      <ChoiceBox fx:id="chooseTriggerOrConstraint" layoutX="476.0" layoutY="321.0" prefHeight="31.0" prefWidth="116.0" />
+      <Label layoutX="29.0" layoutY="67.0" text="Attribute Range Rule">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

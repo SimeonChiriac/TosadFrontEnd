@@ -13,6 +13,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -48,14 +50,16 @@ public class TupleCompareRuleController {
     private ComboBox<String> chooseColumn1;
 
     @FXML
-    private ComboBox<String> chooseConstraint;
+    private ChoiceBox<String> chooseConstraint;
 
     @FXML
     private ComboBox<String> chooseColumn2;
 
     @FXML
-    void generateRule(ActionEvent event) throws UnknownHostException, IOException {
+    void generateRule() throws UnknownHostException, IOException {
 		String newBusinessRuleType = "TCR";
+		chosenConstraint = chooseConstraint.getValue();
+
 //		BusinessRule bRule = new BusinessRule();
 //		bRule.setTableName1(chooseTable.getValue());
 //		bRule.setFirstColumn(chooseColumn1.getValue());
@@ -63,24 +67,23 @@ public class TupleCompareRuleController {
 //		bRule.setOperator(chosenConstraint);
 //		sendRule(bRule);
 
-    }
-    
-    @FXML
-    void selectConstraint(ActionEvent event) {
-    	 chosenConstraint = chooseConstraint.getValue();
+		Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+		confirmAlert.setHeaderText("rule is aangemaakt");
+		confirmAlert.showAndWait();
     }
     
     @FXML
     void selectTable(ActionEvent event) throws SQLException {
-    	namesColumn = FXCollections.observableArrayList();
-		PostgresGetColumns postgresColumns = new PostgresGetColumns();
-		columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
-		for (Column column : columnNames) {
-			namesColumn.add(column.getName());
+    	if(chooseTable.getValue() != null) {
+			namesColumn = FXCollections.observableArrayList();
+//			PostgresGetColumns postgresColumns = new PostgresGetColumns();
+//			columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
+//			for (Column column : columnNames) {
+//				namesColumn.add(column.getName());
+//			}
+			chooseColumn1.setItems(namesColumn);
+			chooseColumn2.setItems(namesColumn);
 		}
-		
-		chooseColumn1.setItems(namesColumn);
-		chooseColumn2.setItems(namesColumn);
     }
     
     public void setConstraints() {
@@ -95,6 +98,7 @@ public class TupleCompareRuleController {
     
     public void initialize() throws IOException, SQLException {
     	setConstraints();
+		chooseConstraint.setValue("=");
 		namesTable = FXCollections.observableArrayList();
 		PostgresGetTables postgresTables = new PostgresGetTables();
 		tableNames = postgresTables.getTablesPostgresTargetDb();
@@ -111,8 +115,23 @@ public class TupleCompareRuleController {
 		Pane mainWindow = FXMLLoader.load(Main.class.getResource("TupleCompareRule.fxml"));
 		stage.setScene(new Scene(mainWindow));
 		stage.show();
-		
     }
+
+    @FXML
+	public void errorCheck(ActionEvent event) throws UnknownHostException, IOException, SQLException {
+    	Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+    	if(chooseTable.getValue() == null) {
+			errorAlert.setHeaderText("select a table");
+			errorAlert.showAndWait();
+		}
+    	else if (chooseColumn1.getValue() == null || chooseColumn2.getValue() == null) {
+    		errorAlert.setHeaderText("select the columns");
+    		errorAlert.showAndWait();
+		}
+    	else {
+    		this.generateRule();
+		}
+	}
     
 //	private void sendRule(BusinessRule bRule) throws UnknownHostException, IOException {
 //		ClientClass client = new ClientClass();

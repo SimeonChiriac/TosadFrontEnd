@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #351010#351010;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.FirstPageController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #351010#351010;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.FirstPageController">
    <children>
       <ComboBox fx:id="chooseRuleType" layoutX="35.0" layoutY="197.0" prefHeight="35.0" prefWidth="280.0" promptText="Choose a business rule type" style="-fx-background-radius: 20; -fx-padding: 10px;" />
       <TextArea layoutX="35.0" layoutY="26.0" prefHeight="57.0" prefWidth="329.0" style="-fx-background-color: grey; -fx-background-radius: 10px;" text="Business rule generator">
@@ -15,7 +15,7 @@
             <Font name="Times New Roman Bold" size="28.0" />
          </font>
       </TextArea>
-      <Button layoutX="122.0" layoutY="244.0" mnemonicParsing="false" onAction="#toSelectedRule" prefHeight="31.0" prefWidth="193.0" style="-fx-background-radius: 10px; -fx-background-color: #aeff88#aeff88;" text="Generate new rule">
+      <Button layoutX="122.0" layoutY="260.0" mnemonicParsing="false" onAction="#errorCheck" prefHeight="31.0" prefWidth="193.0" style="-fx-background-radius: 10px; -fx-background-color: #aeff88#aeff88;" text="Generate new rule">
          <font>
             <Font name="Sana Regular" size="18.0" />
          </font>
@@ -30,7 +30,7 @@
             <Font name="Times New Roman" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="369.0" layoutY="204.0" mnemonicParsing="false" onAction="#viewDatabase" prefHeight="31.0" prefWidth="193.0" style="-fx-background-radius: 10px; -fx-background-color: #2f71ff#2f71ff;" text="View/edit rules" textFill="WHITE">
+      <Button layoutX="369.0" layoutY="203.0" mnemonicParsing="false" onAction="#viewDatabase" prefHeight="31.0" prefWidth="193.0" style="-fx-background-radius: 10px; -fx-background-color: #2f71ff#2f71ff;" text="View/edit rules" textFill="WHITE">
          <font>
             <Font name="Sana Regular" size="18.0" />
          </font>

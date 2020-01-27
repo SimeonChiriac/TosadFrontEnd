@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import service.WindowController;
 
@@ -31,41 +32,44 @@ public class FirstPageController {
     }
 
     @FXML
-    void toSelectedRule(ActionEvent event) throws IOException, SQLException {
-    	
+	public void errorCheck() throws IOException, SQLException{
+    	if (this.chooseRuleType.getValue() == null) {
+			Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+			errorAlert.setHeaderText("No businessRule selected");
+			errorAlert.showAndWait();
+		}
+    	else {
+    		this.toSelectedRule();
+		}
+	}
+    @FXML
+    void toSelectedRule() throws IOException, SQLException {
     	String ruleType = chooseRuleType.getValue();
-
     	if (ruleType.equals(AttributeRangeRule)) {
     		AttributeRangeRuleController rangeController = new AttributeRangeRuleController();
     		rangeController.createAttributeRangeRuleUI(AttributeRangeRule);
     	}
-    	
-    	if (ruleType.equals(AttributeCompareRule)) {
+    	else if (ruleType.equals(AttributeCompareRule)) {
     		AttributeCompareRuleController compareController = new AttributeCompareRuleController();
     		compareController.createAttributeCompareRuleUI(AttributeCompareRule);
     	}
-    	
-    	if (ruleType.equals(TupleCompareRule)) {
+    	else if (ruleType.equals(TupleCompareRule)) {
     		TupleCompareRuleController tupleController = new TupleCompareRuleController();
     		tupleController.createTupleCompareRuleUI(TupleCompareRule);
     	}
-    	
-    	if (ruleType.equals(InterEntityCompareRule)) {
+    	else if (ruleType.equals(InterEntityCompareRule)) {
     		InterEntityCompareRuleController interCompareController = new InterEntityCompareRuleController();
     		interCompareController.createInterEntityCompareRuleUI(InterEntityCompareRule);
     	}
-    	
-    	if (ruleType.equals(AttributeListRule)) {
+    	else if (ruleType.equals(AttributeListRule)) {
     		AttributeListRuleController listController = new AttributeListRuleController();
     		listController.createAttributeListRuleUI(AttributeListRule);
     	}
-
-		if (ruleType.equals(AttributeOtherRule)) {
+    	else if (ruleType.equals(AttributeOtherRule)) {
 			AttributeOtherRuleController attrOtherController = new AttributeOtherRuleController();
 			attrOtherController.createAttributeOtherRuleUI(AttributeOtherRule);
 		}
-
-		if (ruleType.equals(ModifyRule)) {
+		else if (ruleType.equals(ModifyRule)) {
 			ModifyRuleController modController = new ModifyRuleController();
 			modController.createModifyRuleUI(ModifyRule);
 		}

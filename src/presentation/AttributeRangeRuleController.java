@@ -17,10 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import service.ClientClass;
@@ -37,8 +34,8 @@ public class AttributeRangeRuleController {
 	private String BusinessRuleType = "Attribute Range Rule";
 	private String between = "between";
 	private String notBetween = "not between";
-	private String trigger = "trigger";
-	private String constraint = "constraint";
+	private String trigger = "Trigger";
+	private String constraint = "Constraint";
 	
 	private BusinessRuleType ruleType = new BusinessRuleType();
 
@@ -81,6 +78,8 @@ public class AttributeRangeRuleController {
 
 	public void initialize() throws IOException, SQLException {
 		ruleOperator.setItems(operator);
+		ruleOperator.setValue(between);
+		chooseTriggerOrConstraint.setValue(constraint);
 		chooseTriggerOrConstraint.setItems(triggerOrConstraint);
 		namesTable = FXCollections.observableArrayList();
 		PostgresGetTables postgresTables = new PostgresGetTables();
@@ -114,14 +113,15 @@ public class AttributeRangeRuleController {
 	
 	@FXML
 	void selectTable(ActionEvent event) throws SQLException {
-		namesColumn = FXCollections.observableArrayList();
-		PostgresGetColumns postgresColumns = new PostgresGetColumns();
-		columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
-		for (Column column : columnNames) {
-			namesColumn.add(column.getName());
+		if (chooseTable.getValue() != null) {
+			namesColumn = FXCollections.observableArrayList();
+			PostgresGetColumns postgresColumns = new PostgresGetColumns();
+			columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
+			for (Column column : columnNames) {
+				namesColumn.add(column.getName());
+			}
+			chooseColumn.setItems(namesColumn);
 		}
-		
-		chooseColumn.setItems(namesColumn);
 	}
  
 	@FXML
@@ -188,6 +188,10 @@ public class AttributeRangeRuleController {
 		message.setTypeOfSQL(bRule.getConstraintOrTrigger());
 		
 		sendRule(message);
+
+		Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+		confirmAlert.setHeaderText("rule is aangemaakt");
+		confirmAlert.showAndWait();
 	}
 	
 	

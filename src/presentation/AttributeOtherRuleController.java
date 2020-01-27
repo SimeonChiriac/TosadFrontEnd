@@ -169,5 +169,8 @@ public class AttributeOtherRuleController {
         ArrayList<Table> tableNames = new ArrayList<Table>();
         ArrayList<Column> columnNames = new ArrayList<Column>();
 
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setHeaderText("rule is aangemaakt");
+        confirmAlert.showAndWait();
     }
 }
