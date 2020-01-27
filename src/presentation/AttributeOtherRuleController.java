@@ -72,6 +72,9 @@ public class AttributeOtherRuleController {
     @FXML
     private Button generateRuleId;
 
+    @FXML
+    private TextField ruleNameId;
+
     public void initialize() throws IOException, SQLException {
         startOrEnd.setItems(startOrEndWith);
         startOrEnd.setValue("Start with");
@@ -128,8 +131,8 @@ public class AttributeOtherRuleController {
     public void errorCheck (ActionEvent event) throws IOException, SQLException{
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
         Alert confirmAlert = new Alert (Alert.AlertType.CONFIRMATION);
-        System.out.println(chooseTable.getValue());
-        System.out.println(startOrEnd.getValue());
+//        System.out.println(chooseTable.getValue());
+//        System.out.println(startOrEnd.getValue());
         if(chooseTable.getValue() == null || chooseColumn.getValue() == null) {
             errorAlert.setHeaderText("No table and/or column selected");
             errorAlert.showAndWait();
@@ -147,6 +150,10 @@ public class AttributeOtherRuleController {
             errorAlert.setHeaderText("fill in a value");
             errorAlert.showAndWait();
         }
+        else if(ruleNameId.getText().isEmpty()) {
+            errorAlert.setHeaderText("fill in a rule name");
+            errorAlert.showAndWait();
+        }
         else {
             confirmAlert.setHeaderText("goed gegaan");
             confirmAlert.show();
@@ -156,7 +163,7 @@ public class AttributeOtherRuleController {
 
     public void generateRule() throws IOException, SQLException{
         System.out.println("in generate rule");
-        ruleType.setCode("AOTH");
+        ruleType.setCode("MODI");
 
         ArrayList<Value> values = new ArrayList<Value>();
         ArrayList<Table> tableNames = new ArrayList<Table>();

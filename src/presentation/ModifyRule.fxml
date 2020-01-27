@@ -22,16 +22,16 @@
             </font>
         </Label>
 
-        <ComboBox fx:id="chooseTable" layoutX="50.0" layoutY="135.0" prefHeight="34.0" prefWidth="182.0" promptText="Choose table" style="-fx-background-radius: 20;" />
+        <ComboBox fx:id="chooseTable" layoutX="50.0" layoutY="135.0" onAction="#addColumns" prefHeight="34.0" prefWidth="182.0" promptText="Choose table" style="-fx-background-radius: 20;" />
         <ComboBox fx:id="chooseColumn" layoutX="336.0" layoutY="135.0" prefHeight="34.0" prefWidth="214.0" promptText="Choose  column" style="-fx-background-radius: 20;" />
-        <ComboBox fx:id="chooseTable1" layoutX="188.0" layoutY="274.0" prefHeight="34.0" prefWidth="182.0" promptText="Choose table" style="-fx-background-radius: 20;" />
-        <ComboBox fx:id="chooseColumn1" layoutX="385.0" layoutY="274.0" prefHeight="34.0" prefWidth="165.0" promptText="Choose  column" style="-fx-background-radius: 20;" />
-        <TextField fx:id="value1" layoutX="336.0" layoutY="203.0" prefHeight="31.0" prefWidth="69.0" />
+        <ComboBox fx:id="chooseTableRule" layoutX="188.0" layoutY="274.0" onAction="#addColumnRule" prefHeight="34.0" prefWidth="182.0" promptText="Choose table" style="-fx-background-radius: 20;" />
+        <ComboBox fx:id="chooseColumnRule" layoutX="385.0" layoutY="274.0" prefHeight="34.0" prefWidth="165.0" promptText="Choose  column" style="-fx-background-radius: 20;" />
+        <TextField fx:id="value" layoutX="336.0" layoutY="203.0" prefHeight="31.0" prefWidth="69.0" />
         <Label layoutX="154.0" layoutY="208.0" text="When value" textFill="WHITE" />
-        <Button fx:id="generateRuleId" layoutX="420.0" layoutY="342.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #86f880#86f880; -fx-background-radius: 20;" text="Generate rule" textAlignment="CENTER" />
-        <ChoiceBox fx:id="startOrEnd" layoutX="250.0" layoutY="203.0" prefHeight="31.0" prefWidth="58.0" />
+        <Button fx:id="generateRuleId" layoutX="420.0" layoutY="342.0" mnemonicParsing="false" onAction="#errorCheck" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #86f880#86f880; -fx-background-radius: 20;" text="Generate rule" textAlignment="CENTER" />
+        <ChoiceBox fx:id="chooseConstraint" layoutX="250.0" layoutY="203.0" prefHeight="31.0" prefWidth="58.0" />
         <Label layoutX="50.0" layoutY="352.0" text="Rule name:" textFill="WHITE" />
         <TextField fx:id="ruleNameId" layoutX="141.0" layoutY="347.0" prefHeight="31.0" prefWidth="205.0" />
-      <Label layoutX="33.0" layoutY="281.0" text="Can't" />
+      <Label layoutX="87.0" layoutY="281.0" text="Can't modify:" textFill="WHITE" />
     </children>
 </Pane>

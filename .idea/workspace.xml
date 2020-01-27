@@ -2,53 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="547741e1-614b-499d-b45f-aa77cb523127" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bin/domain/BusinessRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/BusinessRule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/domain/BusinessRuleType.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/BusinessRuleType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/domain/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/domain/Column.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/Column.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/domain/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/domain/Operator.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/Operator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/domain/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/Table.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/domain/Value.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/domain/Value.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRuleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRuleDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRulePostgresDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRulePostgresDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRuleTypeDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRuleTypeDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRuleTypePostgresDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/BusinessRuleTypePostgresDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/CategoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/CategoryDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/CategoryPostgresDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/CategoryPostgresDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ColumnDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ColumnDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ColumnPostgresDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ColumnPostgresDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/PostgresBaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/PostgresBaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/TableDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/TableDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/TablePostgresDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/TablePostgresDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ValueDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ValueDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ValuePostgresDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresDAOs/ValuePostgresDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresGetColumnNamesTargetDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresGetColumnNamesTargetDb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresGetColumnNamesToolDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresGetColumnNamesToolDb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresGetTableNamesTargetDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresGetTableNamesTargetDb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresGetTableNamesToolDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresGetTableNamesToolDb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/persistence/PostgresInsertBusinessRuleToolDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/persistence/PostgresInsertBusinessRuleToolDb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/presentation/AttributeCompareRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/AttributeCompareRuleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/presentation/AttributeListRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/AttributeListRuleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/presentation/AttributeRangeRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/AttributeRangeRuleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/presentation/FirstPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/FirstPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/presentation/InterEntityCompareRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/InterEntityCompareRuleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/presentation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/presentation/SearchExistingBusinessRulesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/SearchExistingBusinessRulesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/presentation/TupleCompareRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/TupleCompareRuleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/service/ClientClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/service/ClientClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/service/IDUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/service/IDUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/service/PostgresGetColumns.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/service/PostgresGetColumns.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/service/PostgresGetTables.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/service/PostgresGetTables.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/service/PostgresInsertBusinessRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/service/PostgresInsertBusinessRule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/service/WindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/service/WindowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/AttributeCompareRuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/AttributeCompareRuleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/AttributeListRuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/AttributeListRuleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/AttributeRangeRuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/AttributeRangeRuleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/FirstPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/FirstPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/InterEntityCompareRuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/InterEntityCompareRuleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/TupleCompareRuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/TupleCompareRuleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/presentation/AttributeOtherRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/AttributeOtherRuleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/presentation/ModifyRule.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/ModifyRule.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/presentation/ModifyRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/presentation/ModifyRuleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/AttributeOtherRuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/AttributeOtherRuleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/ModifyRule.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/ModifyRule.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/ModifyRuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/ModifyRuleController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -62,65 +22,27 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.54761904">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/presentation/ModifyRule.fxml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="30" column="94" selection-start-line="30" selection-start-column="94" selection-end-line="30" selection-end-column="94" />
-                </state>
-              </provider>
-              <provider editor-type-id="JavaFX-Scene-Builder" />
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/presentation/FirstPage.fxml">
+            <entry file="file://$PROJECT_DIR$/src/presentation/ModifyRule.fxml">
               <provider editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="200" selection-start-line="11" selection-start-column="200" selection-end-line="11" selection-end-column="200" />
+                <state relative-caret-position="510">
+                  <caret line="30" column="94" selection-start-line="30" selection-start-column="94" selection-end-line="30" selection-end-column="94" />
                 </state>
               </provider>
               <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/presentation/AttributeOtherRule.fxml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="534">
-                  <caret line="34" column="32" selection-start-line="34" selection-end-line="35" />
-                </state>
-              </provider>
-              <provider editor-type-id="JavaFX-Scene-Builder" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/presentation/FirstPageController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/presentation/ModifyRuleController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="260">
-                  <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+                <state relative-caret-position="100">
+                  <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
                 </state>
               </provider>
             </entry>
@@ -128,17 +50,27 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/presentation/AttributeOtherRuleController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="200">
-                  <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+                <state relative-caret-position="-126">
+                  <caret line="130" column="31" selection-start-line="130" selection-start-column="31" selection-end-line="130" selection-end-column="31" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
                 </state>
               </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/presentation/AttributeOtherRule.fxml">
+              <provider editor-type-id="text-editor">
+                <state relative-caret-position="289">
+                  <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+                </state>
+              </provider>
+              <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
             </entry>
           </file>
         </leaf>
@@ -172,10 +104,10 @@
         <option value="$PROJECT_DIR$/src/presentation/AttributeRangeRule.fxml" />
         <option value="$PROJECT_DIR$/src/presentation/AttributeOtherRule.fxml" />
         <option value="$PROJECT_DIR$/src/presentation/AttributeRangeRuleController.java" />
-        <option value="$PROJECT_DIR$/src/presentation/AttributeOtherRuleController.java" />
-        <option value="$PROJECT_DIR$/src/presentation/ModifyRuleController.java" />
         <option value="$PROJECT_DIR$/src/presentation/FirstPageController.java" />
+        <option value="$PROJECT_DIR$/src/presentation/AttributeOtherRuleController.java" />
         <option value="$PROJECT_DIR$/src/presentation/ModifyRule.fxml" />
+        <option value="$PROJECT_DIR$/src/presentation/ModifyRuleController.java" />
       </list>
     </option>
   </component>
@@ -192,10 +124,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-10" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -255,6 +187,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -313,17 +246,19 @@
       <workItem from="1579991267019" duration="4318000" />
       <workItem from="1580050755871" duration="4097000" />
       <workItem from="1580054892130" duration="4997000" />
+      <workItem from="1580122064742" duration="3527000" />
+      <workItem from="1580125643249" duration="12000" />
+      <workItem from="1580126918010" duration="835000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28564000" />
+    <option name="totallyTimeSpent" value="32938000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12483221" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12885906" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -332,7 +267,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3711048" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.19971672" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -428,22 +363,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeRangeRuleController.java">
+    <entry file="file://$PROJECT_DIR$/src/presentation/InterEntityCompareRuleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4024#4031#0" expanded="true" />
-            <element signature="e#4083#4090#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeCompareRuleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="114" column="34" lean-forward="true" selection-start-line="114" selection-start-column="34" selection-end-line="114" selection-end-column="34" />
+        <state relative-caret-position="385">
+          <caret line="118" column="23" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -453,34 +376,7 @@
     <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/FirstPageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/ModifyRuleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/InterEntityCompareRuleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="118" column="23" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="21" column="65" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -492,26 +388,65 @@
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeOtherRule.fxml">
+    <entry file="file://$PROJECT_DIR$/src/presentation/FirstPageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="34" column="32" selection-start-line="34" selection-end-line="35" />
+        <state relative-caret-position="221">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeRangeRuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2074">
+          <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4024#4031#0" expanded="true" />
+            <element signature="e#4083#4090#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeCompareRuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/ModifyRule.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="510">
           <caret line="30" column="94" selection-start-line="30" selection-start-column="94" selection-end-line="30" selection-end-column="94" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/AttributeOtherRuleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+        <state relative-caret-position="-126">
+          <caret line="130" column="31" selection-start-line="130" selection-start-column="31" selection-end-line="130" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/AttributeOtherRule.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ModifyRuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
