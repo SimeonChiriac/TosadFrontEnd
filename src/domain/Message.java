@@ -18,7 +18,4 @@ public class Message {
 	public void setTypeOfSQL(String typeOfSQL) {
 		this.typeOfSQL = typeOfSQL;
 	}
-	
-	
-
 }

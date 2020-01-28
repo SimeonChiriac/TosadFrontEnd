@@ -24,7 +24,7 @@ public class FirstPageController {
     @FXML
     private ComboBox<String> chooseRuleType;
     
-    private ObservableList<String> ruleTypes = FXCollections.observableArrayList(AttributeRangeRule, AttributeCompareRule, TupleCompareRule, 
+    private ObservableList<String> ruleTypes = FXCollections.observableArrayList(AttributeRangeRule, AttributeCompareRule, 
     		InterEntityCompareRule, TupleCompareRule, TupleOtherRule, AttributeListRule, AttributeOtherRule, EntityOtherRule, ModifyRule);
     
     public void initialize() {
@@ -59,6 +59,16 @@ public class FirstPageController {
     	if (ruleType.equals(AttributeListRule)) {
     		AttributeListRuleController listController = new AttributeListRuleController();
     		listController.createAttributeListRuleUI(AttributeListRule);
+    	}
+    	
+    	if (ruleType.equals(ModifyRule)) {
+    		ModifyRuleController modifyController = new ModifyRuleController();
+    		modifyController.createModifyRuleUI(ModifyRule);
+    	}
+    	
+    	if (ruleType.equals(AttributeOtherRule)) {
+    		AttributeOtherRuleController otherRule = new AttributeOtherRuleController();
+    		otherRule.createAttributeOtherRuleUI(AttributeOtherRule);
     	}
 
     }

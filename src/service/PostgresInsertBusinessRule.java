@@ -3,8 +3,9 @@ package service;
 import java.sql.SQLException;
 
 import domain.BusinessRule;
-import persistence.PostgresDAOs.BusinessRuleDao;
-import persistence.PostgresDAOs.BusinessRulePostgresDaoImpl;
+import persistence.tool.businessRule.BusinessRuleDao;
+import persistence.tool.businessRule.postgres.BusinessRulePostgresDaoImpl;
+
 
 public class PostgresInsertBusinessRule {
 	

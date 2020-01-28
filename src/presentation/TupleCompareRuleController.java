@@ -5,7 +5,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import domain.BusinessRule;
+import domain.BusinessRuleType;
 import domain.Column;
+import domain.Message;
 import domain.Table;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,15 +15,33 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import persistence.PostgresGetColumnNamesTargetDb;
+import service.BusinessRuleBuilderImpl;
 import service.ClientClass;
+import service.ColumnService;
+import service.IDUtil;
 import service.PostgresGetColumns;
 import service.PostgresGetTables;
+import service.PostgresInsertBusinessRule;
+import service.TableService;
 
 public class TupleCompareRuleController {
+	
+	IDUtil generateID = new IDUtil();
+	private BusinessRuleType ruleType = new BusinessRuleType();
+
+	private TableService tableService = new TableService();
+	private ColumnService columnService = new ColumnService();
+	
+	private ArrayList<Table> tables = new ArrayList<Table>();
+
+	private ArrayList<Column> columns = new ArrayList<Column>();
 	
 	private String BusinessRuleType;
 	
@@ -40,6 +60,9 @@ public class TupleCompareRuleController {
 	
 	ArrayList<Column> columnNames;
 	private ObservableList<String> namesColumn;
+	
+	Button deleteRuleButton;
+	boolean deleteButtonPressed;
 
     @FXML
     private ComboBox<String> chooseTable;
@@ -52,18 +75,13 @@ public class TupleCompareRuleController {
 
     @FXML
     private ComboBox<String> chooseColumn2;
+    
+    @FXML
+    private TextField ruleName;
 
     @FXML
-    void generateRule(ActionEvent event) throws UnknownHostException, IOException {
-		String newBusinessRuleType = "TCR";
-//		BusinessRule bRule = new BusinessRule();
-//		bRule.setTableName1(chooseTable.getValue());
-//		bRule.setFirstColumn(chooseColumn1.getValue());
-//		bRule.setSecondColumn(chooseColumn2.getValue());
-//		bRule.setOperator(chosenConstraint);
-//		sendRule(bRule);
+    private ChoiceBox<String> chooseTriggerOrConstraint;
 
-    }
     
     @FXML
     void selectConstraint(ActionEvent event) {
@@ -114,9 +132,65 @@ public class TupleCompareRuleController {
 		
     }
     
-	private void sendRule(BusinessRule bRule) throws UnknownHostException, IOException {
+    @FXML
+	void generateRule(ActionEvent event) throws UnknownHostException, IOException, SQLException {
+		ruleType.setCode("TCMP");
+		
+		Table table = new Table();
+		table.setName(chooseTable.getValue());
+		tables.add(table);
+		
+		Column column1 = new Column();
+		column1.setName(chooseColumn1.getValue());
+		columns.add(column1);
+		
+		Column column2 = new Column();
+		column2.setName(chooseColumn2.getValue());
+		columns.add(column2);
+		
+		tableService.saveTables(tables);
+		columnService.saveColumns(columns);
+
+		BusinessRule bRule = new BusinessRule();
+
+		BusinessRuleBuilderImpl businessBuilder = new BusinessRuleBuilderImpl();
+		businessBuilder.addColumn(chooseColumn1.getValue());
+		businessBuilder.addColumn(chooseColumn2.getValue());
+		businessBuilder.addTable(chooseTable.getValue());
+		businessBuilder.addValue(chosenConstraint, "Operator", (int) generateID.getNextId());
+		businessBuilder.setConstraintOrTrigger(chooseTriggerOrConstraint.getValue());
+		businessBuilder.setRuleType(ruleType);
+		businessBuilder.setID((int) generateID.getNextId());
+		businessBuilder.setNaam(BusinessRuleType);
+		
+		bRule = businessBuilder.createBusinessRule();
+
+		PostgresInsertBusinessRule insert = new PostgresInsertBusinessRule();
+		boolean insertCompleted = insert.insertBusinessRule(bRule);
+		System.out.println(insertCompleted);
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		Message message = new Message();
+		message.setBusinessRuleID(bRule.getID());
+		message.setTypeOfSQL(bRule.getConstraintOrTrigger());
+
+		sendRule(message);
+		
+		Alert confirmAlert = new Alert(Alert.AlertType.INFORMATION);
+		confirmAlert.setTitle("Business Rule Generator");
+		confirmAlert.setHeaderText("Succes!");
+		confirmAlert.setContentText("Your business rule was generated and saved succesfully in the database");
+		confirmAlert.showAndWait();
+	}
+
+	private void sendRule(Message message) throws UnknownHostException, IOException {
 		ClientClass client = new ClientClass();
-		client.sendBusinessRule(bRule);
+		client.sendBusinessRule(message);
 	}
 
 }

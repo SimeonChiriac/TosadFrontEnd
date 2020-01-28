@@ -12,13 +12,22 @@ public class BusinessRule {
 	private List<Column> deColumns;
 	private String constraint;
 	private String trigger;
+	private String chooseTriggerOrConstraint;
+	private String typeOfCode;
 	private BusinessRuleType ruleType;
 	private String example;
-	private String constraintOrTrigger;
 
 	public BusinessRule() {
 		deValues = new ArrayList<Value>();
 		deTables = new ArrayList<Table>();
+	}
+
+	public String getTypeOfCode() {
+		return typeOfCode;
+	}
+
+	public void setTypeOfCode(String typeOfCode) {
+		this.typeOfCode = typeOfCode;
 	}
 
 	public int getID() {
@@ -93,12 +102,13 @@ public class BusinessRule {
 		this.deTables = list;
 	}
 
-	public String getConstraintOrTrigger() {
-		return constraintOrTrigger;
-	}
-
 	public void setConstraintOrTrigger(String constraintOrTrigger) {
-		this.constraintOrTrigger = constraintOrTrigger;
+		this.chooseTriggerOrConstraint = constraintOrTrigger;
+		
+	}
+	
+	public String getConstraintOrTrigger() {
+		return this.chooseTriggerOrConstraint;
 	}
 
 }

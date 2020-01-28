@@ -48,10 +48,17 @@ public class SearchExistingBusinessRulesController {
     @FXML
     void searchBRule(ActionEvent event) throws IOException, SQLException {
     	chosenName = bRuleName.getText();
+		WindowController.setDeleteRule(true);
+
+    	
     	if (chosenType == "Attribute Range Rule") {
-    		WindowController.setDeleteRule(true);
     		AttributeRangeRuleController range = new AttributeRangeRuleController();
     		range.createAttributeRangeRuleUI(chosenType);
+    	}
+    	
+    	if(chosenType == "Attribute Compare Rule") {
+    		AttributeCompareRuleController compare = new AttributeCompareRuleController();
+    		compare.createAttributeCompareRuleUI(chosenType);
     	}
 
     }

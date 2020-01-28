@@ -4,10 +4,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import domain.Column;
-import domain.Table;
 import persistence.PostgresGetColumnNamesTargetDb;
 import persistence.PostgresGetColumnNamesToolDb;
-import persistence.PostgresGetTableNamesTargetDb;
+
 
 public class PostgresGetColumns {
 	

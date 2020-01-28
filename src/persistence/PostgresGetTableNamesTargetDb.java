@@ -19,6 +19,7 @@ public class PostgresGetTableNamesTargetDb {
 			getNamesTable = new ArrayList<Table>();
 			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/kledingWinkel", "postgres",
 					"S()nt5LogE");
+			
 			Statement st = con.createStatement();
 
 			DatabaseMetaData dbmd = con.getMetaData();

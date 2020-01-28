@@ -2,11 +2,9 @@ package service;
 
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import domain.BusinessRule;
 import domain.Message;
 
 import java.io.IOException;

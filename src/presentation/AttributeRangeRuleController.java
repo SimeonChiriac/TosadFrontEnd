@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import domain.BusinessRule;
+import domain.BusinessRuleType;
 import domain.Column;
 import domain.Message;
 import domain.Table;
-import domain.Value;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,29 +17,32 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import service.BusinessRuleBuilderImpl;
 import service.ClientClass;
+import service.ColumnService;
 import service.IDUtil;
 import service.PostgresGetColumns;
 import service.PostgresGetTables;
 import service.PostgresInsertBusinessRule;
+import service.TableService;
 import service.WindowController;
-import domain.BusinessRuleType;
 
 public class AttributeRangeRuleController {
-	
+
 	IDUtil generateID = new IDUtil();
 	private String BusinessRuleType = "Attribute Range Rule";
 	private String between = "between";
 	private String notBetween = "not between";
 	private String trigger = "trigger";
 	private String constraint = "constraint";
-	
+
 	private BusinessRuleType ruleType = new BusinessRuleType();
 
 	ArrayList<Table> tableNames;
@@ -47,15 +50,21 @@ public class AttributeRangeRuleController {
 
 	ArrayList<Column> columnNames;
 	private ObservableList<String> namesColumn;
-	
-    private ObservableList<String> operator = FXCollections.observableArrayList(between, notBetween);
-    
-    private ObservableList<String> triggerOrConstraint = FXCollections.observableArrayList(trigger, constraint);
 
-    		
+	private ObservableList<String> operator = FXCollections.observableArrayList(between, notBetween);
+
+	private ObservableList<String> triggerOrConstraint = FXCollections.observableArrayList(trigger, constraint);
+	
+	private TableService tableService = new TableService();
+	private ColumnService columnService = new ColumnService();
+	
+	private ArrayList<Table> tables = new ArrayList<Table>();
+
+	private ArrayList<Column> columns = new ArrayList<Column>();
+
 	@FXML
 	private ComboBox<String> chooseTable;
-	
+
 	@FXML
 	private ComboBox<String> chooseColumn;
 
@@ -64,20 +73,18 @@ public class AttributeRangeRuleController {
 
 	@FXML
 	private TextField rangeTo;
-	
-    @FXML
-    private TextField ruleName;
 
-    @FXML
-    private ChoiceBox<String> ruleOperator;
+	@FXML
+	private TextField ruleName;
 
-    @FXML
-    private ChoiceBox<String> chooseTriggerOrConstraint;
-	
+	@FXML
+	private ChoiceBox<String> ruleOperator;
+
+	@FXML
+	private ChoiceBox<String> chooseTriggerOrConstraint;
+
 	Button deleteRuleButton;
 	boolean deleteButtonPressed;
-
-
 
 	public void initialize() throws IOException, SQLException {
 		ruleOperator.setItems(operator);
@@ -89,13 +96,15 @@ public class AttributeRangeRuleController {
 			namesTable.add(tabel.getName());
 		}
 		chooseTable.setItems(namesTable);
+		
+		
 	}
-	
+
 	private void createDeleteButton() {
 		deleteRuleButton = new Button("Delete Rule");
 		deleteRuleButton.setStyle("-fx-font-size:20;" + "-fx-text-fill: white;" + "-fx-background-color: #7d0000;");
-		deleteRuleButton.setTranslateX(490);
-		deleteRuleButton.setTranslateY(280);
+		deleteRuleButton.setTranslateX(270);
+		deleteRuleButton.setTranslateY(395);
 		deleteRuleButton.setPadding(new Insets(10, 20, 10, 20));
 	}
 
@@ -103,15 +112,15 @@ public class AttributeRangeRuleController {
 		BusinessRuleType = AttributeRangeRule;
 		Stage stage = new Stage();
 		Pane mainWindow = FXMLLoader.load(Main.class.getResource("AttributeRangeRule.fxml"));
-		if(WindowController.getDeleteRule()) {
+		if (WindowController.getDeleteRule()) {
 			createDeleteButton();
 			mainWindow.getChildren().add(deleteRuleButton);
-		}		
+		}
 		stage.setScene(new Scene(mainWindow));
 		stage.show();
 
 	}
-	
+
 	@FXML
 	void selectTable(ActionEvent event) throws SQLException {
 		namesColumn = FXCollections.observableArrayList();
@@ -120,78 +129,63 @@ public class AttributeRangeRuleController {
 		for (Column column : columnNames) {
 			namesColumn.add(column.getName());
 		}
-		
+
 		chooseColumn.setItems(namesColumn);
 	}
- 
+
 	@FXML
 	void generateRule(ActionEvent event) throws UnknownHostException, IOException, SQLException {
-		ruleType.setCode("ARR");
-		
-		System.out.println(chooseTriggerOrConstraint.getValue());
-		System.out.println(ruleOperator.getValue());
-		System.out.println(ruleName.getText());
-		
-		ArrayList<Value> values = new ArrayList<Value>();
-		
-		ArrayList<Table> tableNames = new ArrayList<Table>();
-		
-		ArrayList<Column> columnNames = new ArrayList<Column>();
-		
+		ruleType.setCode("ARNG");
 		
 		Table table = new Table();
 		table.setName(chooseTable.getValue());
-		tableNames.add(table);
+		tables.add(table);
 		
 		Column column = new Column();
 		column.setName(chooseColumn.getValue());
-		columnNames.add(column);
-
-		Value minValue = new Value();
-		minValue.setID((int) generateID.getNextId());
-		minValue.setGiven(rangeFrom.getText());
-		minValue.setDataType("minValue");
+		columns.add(column);
 		
-		Value maxValue = new Value();
-		maxValue.setID((int) generateID.getNextId());
-		maxValue.setGiven(rangeTo.getText());
-		maxValue.setDataType("maxValue");
-		
-		Value operator = new Value();
-		operator.setID((int) generateID.getNextId());
-		operator.setGiven(ruleOperator.getValue());
-		operator.setDataType("Operator");
-		
-		values.add(minValue);
-		values.add(maxValue);
-		values.add(operator);
-		
-
+		tableService.saveTables(tables);
+		columnService.saveColumns(columns);
 
 		BusinessRule bRule = new BusinessRule();
+
+		BusinessRuleBuilderImpl businessBuilder = new BusinessRuleBuilderImpl();
+		businessBuilder.addColumn(chooseColumn.getValue());
+		businessBuilder.addTable(chooseTable.getValue());
+		businessBuilder.addValue(rangeFrom.getText(), "minValue", (int) generateID.getNextId());
+		businessBuilder.addValue(rangeTo.getText(), "maxValue", (int) generateID.getNextId());
+		businessBuilder.addValue(ruleOperator.getValue(), "Operator", (int) generateID.getNextId());
+		businessBuilder.setConstraintOrTrigger(chooseTriggerOrConstraint.getValue());
+		businessBuilder.setRuleType(ruleType);
+		businessBuilder.setID((int) generateID.getNextId());
+		businessBuilder.setNaam(ruleName.getText());
 		
-		
-		bRule.setID((int) generateID.getNextId());
-		bRule.setNaam(ruleName.getText());
-		bRule.setConstraintOrTrigger(chooseTriggerOrConstraint.getValue());
-		bRule.setRuleType(ruleType);
-		bRule.setDeTables(tableNames);
-		bRule.setDeColumns(columnNames);
-		bRule.setDeValues(values);
-		bRule.setConstraintOrTrigger("constraint");
-		
+		bRule = businessBuilder.createBusinessRule();
+
 		PostgresInsertBusinessRule insert = new PostgresInsertBusinessRule();
 		boolean insertCompleted = insert.insertBusinessRule(bRule);
 		System.out.println(insertCompleted);
 		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 		Message message = new Message();
 		message.setBusinessRuleID(bRule.getID());
 		message.setTypeOfSQL(bRule.getConstraintOrTrigger());
-		
+
 		sendRule(message);
+		
+		Alert confirmAlert = new Alert(Alert.AlertType.INFORMATION);
+		confirmAlert.setTitle("Business Rule Generator");
+		confirmAlert.setHeaderText("Succes!");
+		confirmAlert.setContentText("Your business rule was generated and saved succesfully in the database");
+		confirmAlert.showAndWait();
 	}
-	
-	
+
 	private void sendRule(Message message) throws UnknownHostException, IOException {
 		ClientClass client = new ClientClass();
 		client.sendBusinessRule(message);
