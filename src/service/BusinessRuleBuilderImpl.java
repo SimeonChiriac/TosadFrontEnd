@@ -65,6 +65,14 @@ public class BusinessRuleBuilderImpl implements BusinessRuleBuilder {
 	private float generateID() {
 		return idGenerator.getNextId();
 	}
+	
+	public void addInterColumn(String columnName, String columnType) {
+		Column newColumn = new Column();
+		newColumn.setName(columnName);
+		newColumn.setDataType(columnType);
+		
+		columnNames.add(newColumn);
+	}
 
 	@Override
 	public BusinessRule createBusinessRule() {

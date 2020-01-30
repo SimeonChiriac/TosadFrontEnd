@@ -42,7 +42,6 @@ public class ColumnPostgresDaoImpl implements ColumnDao {
 	@Override
 	public boolean save(Column c) {
 		try {
-
 			String strQuery = "INSERT INTO COLUMNNAME (NAME) values(?)";
 			PreparedStatement pstmt = conn.prepareStatement(strQuery);
 			pstmt.setString(1, c.getName());

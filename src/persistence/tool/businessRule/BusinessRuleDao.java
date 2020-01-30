@@ -16,4 +16,6 @@ public interface BusinessRuleDao {
 	
 	public boolean delete(BusinessRule b);
 
+	BusinessRule findByName(String name);
+
 }

@@ -9,8 +9,8 @@ public class WindowController {
 	//If successOrFailureAlertBox is set to false, an alertbox with an error will show up instead.
 	static boolean successOrFailureAlertBox;
 	
-	public static void setMessage(ObservableList<String> Message) {
-		message = Message;
+	public static void setMessage(ObservableList<String> recievedMessage) {
+		message = recievedMessage;
 	}
 	
 	public static ObservableList<String> getMessage() {
@@ -27,6 +27,7 @@ public class WindowController {
 	
 	public static void setSuccessAlertBox(boolean showSuccess) {
 		successOrFailureAlertBox = showSuccess;
+		System.out.println(successOrFailureAlertBox);
 	}
 	
 	public static boolean getSuccessAlertBox() {

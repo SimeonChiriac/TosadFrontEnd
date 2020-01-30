@@ -9,6 +9,7 @@ import java.util.List;
 import domain.BusinessRule;
 import domain.BusinessRuleType;
 import domain.Column;
+import domain.Message;
 import domain.Table;
 import domain.Value;
 import javafx.collections.FXCollections;
@@ -21,11 +22,19 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import persistence.PostgresGetColumnNamesTargetDb;
+import service.BusinessRuleBuilderImpl;
 import service.ClientClass;
+import service.ColumnService;
+import service.IDUtil;
 import service.PostgresGetColumns;
 import service.PostgresGetTables;
+import service.PostgresInsertBusinessRule;
+import service.TableService;
 
 public class AttributeOtherRuleController {
+	
+	IDUtil generateID = new IDUtil();
+
 
     private String BusinessRuleType;
     private String startWith = "Start with";
@@ -44,6 +53,14 @@ public class AttributeOtherRuleController {
 
     ArrayList<Column> columnNames;
     private ObservableList<String> namesColumn = FXCollections.observableArrayList("column1", "colomn2");
+    
+	private ArrayList<Table> tables = new ArrayList<Table>();
+
+	private ArrayList<Column> columns = new ArrayList<Column>();
+	
+	private TableService tableService = new TableService();
+	private ColumnService columnService = new ColumnService();
+    
 
     @FXML
     private ComboBox<String> chooseTable;
@@ -74,6 +91,7 @@ public class AttributeOtherRuleController {
 
     @FXML
     private TextField ruleNameId;
+    
 
     public void initialize() throws IOException, SQLException {
         startOrEnd.setItems(startOrEndWith);
@@ -118,59 +136,100 @@ public class AttributeOtherRuleController {
     @FXML
     public void addColumns (ActionEvent event) throws IOException, SQLException {
         if(chooseTable.getValue() != null) {
-//            PostgresGetColumns postgresColumns = new PostgresGetColumns();
-//            columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
-//            for (Column column : columnNames) {
-//                namesColumn.add(column.getName());
-//            }
+            PostgresGetColumns postgresColumns = new PostgresGetColumns();
+            columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
+            for (Column column : columnNames) {
+                namesColumn.add(column.getName());
+            }
             chooseColumn.setItems(namesColumn);
         }
     }
 
     @FXML
     public void errorCheck (ActionEvent event) throws IOException, SQLException{
-        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-        Alert confirmAlert = new Alert (Alert.AlertType.CONFIRMATION);
-//        System.out.println(chooseTable.getValue());
-//        System.out.println(startOrEnd.getValue());
-        if(chooseTable.getValue() == null || chooseColumn.getValue() == null) {
-            errorAlert.setHeaderText("No table and/or column selected");
-            errorAlert.showAndWait();
-        }
-        else if(checkInBetween.isSelected() || checkNotInBetween.isSelected()) {
-            if(value1.getText().isEmpty() || value2.getText().isEmpty()) {
-                errorAlert.setHeaderText("No values entered.");
-                errorAlert.showAndWait();
-            }
-            else {
-                this.generateRule();
-            }
-        }
-        else if(value1.getText().isEmpty()) {
-            errorAlert.setHeaderText("fill in a value");
-            errorAlert.showAndWait();
-        }
-        else if(ruleNameId.getText().isEmpty()) {
-            errorAlert.setHeaderText("fill in a rule name");
-            errorAlert.showAndWait();
-        }
-        else {
-            confirmAlert.setHeaderText("goed gegaan");
-            confirmAlert.show();
-            this.generateRule();
-        }
+//        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+//        Alert confirmAlert = new Alert (Alert.AlertType.CONFIRMATION);
+//
+//        if(chooseTable.getValue() == null || chooseColumn.getValue() == null) {
+//            errorAlert.setHeaderText("No table and/or column selected");
+//            errorAlert.showAndWait();
+//        }
+//        else if(checkInBetween.isSelected() || checkNotInBetween.isSelected()) {
+//            if(value1.getText().isEmpty() || value2.getText().isEmpty()) {
+//                errorAlert.setHeaderText("No values entered.");
+//                errorAlert.showAndWait();
+//            }
+//            else {
+//                this.generateRule();
+//            }
+//        }
+//        else if(value1.getText().isEmpty()) {
+//            errorAlert.setHeaderText("fill in a value");
+//            errorAlert.showAndWait();
+//        }
+//        else if(ruleNameId.getText().isEmpty()) {
+//            errorAlert.setHeaderText("fill in a rule name");
+//            errorAlert.showAndWait();
+//        }
+//        else {
+//            confirmAlert.setHeaderText("goed gegaan");
+//            confirmAlert.show();
+//            this.generateRule();
+//        }
     }
 
-    public void generateRule() throws IOException, SQLException{
-        System.out.println("in generate rule");
-        ruleType.setCode("MODI");
+	@FXML
+	void generateRule(ActionEvent event) throws UnknownHostException, IOException, SQLException {
+		ruleType.setCode("AOTH");
+		
+		Table table = new Table();
+		table.setName(chooseTable.getValue());
+		tables.add(table);
+		
+		Column column = new Column();
+		column.setName(chooseColumn.getValue());
+		columns.add(column);
+		
+		tableService.saveTables(tables);
+		columnService.saveColumns(columns);
 
-        ArrayList<Value> values = new ArrayList<Value>();
-        ArrayList<Table> tableNames = new ArrayList<Table>();
-        ArrayList<Column> columnNames = new ArrayList<Column>();
+		BusinessRule bRule = new BusinessRule();
 
-        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmAlert.setHeaderText("rule is aangemaakt");
-        confirmAlert.showAndWait();
-    }
+		BusinessRuleBuilderImpl businessBuilder = new BusinessRuleBuilderImpl();
+		businessBuilder.addColumn(chooseColumn.getValue());
+		businessBuilder.addTable(chooseTable.getValue());
+		businessBuilder.setConstraintOrTrigger(chooseTriggerOrConstraint.getValue());
+		businessBuilder.setRuleType(ruleType);
+		businessBuilder.setID((int) generateID.getNextId());
+		businessBuilder.setNaam(ruleNameId.getText());
+		
+		bRule = businessBuilder.createBusinessRule();
+
+		PostgresInsertBusinessRule insert = new PostgresInsertBusinessRule();
+		boolean insertCompleted = insert.insertBusinessRule(bRule);
+		System.out.println(insertCompleted);
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		Message message = new Message();
+		message.setBusinessRuleID(bRule.getID());
+		message.setTypeOfSQL(bRule.getConstraintOrTrigger());
+
+		sendRule(message);
+		
+		Alert confirmAlert = new Alert(Alert.AlertType.INFORMATION);
+		confirmAlert.setTitle("Business Rule Generator");
+		confirmAlert.setHeaderText("Succes!");
+		confirmAlert.setContentText("Your business rule was generated and saved succesfully in the database");
+		confirmAlert.showAndWait();
+	}
+
+	private void sendRule(Message message) throws UnknownHostException, IOException {
+		ClientClass client = new ClientClass();
+		client.sendBusinessRule(message);
+	}
 }

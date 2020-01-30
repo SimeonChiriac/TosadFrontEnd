@@ -7,7 +7,7 @@ public class Column {
 	private String dataType;
 
 	public Column() {
-
+		this.dataType = null;
 	}
 
 	public Table getTable() {
