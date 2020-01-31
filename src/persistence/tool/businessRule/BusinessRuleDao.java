@@ -12,10 +12,11 @@ public interface BusinessRuleDao {
 	
 	public boolean save(BusinessRule b);
 	
-	public boolean update(BusinessRule b);
 	
 	public boolean delete(BusinessRule b);
 
 	BusinessRule findByName(String name);
+
+	public void update(BusinessRule b);
 
 }

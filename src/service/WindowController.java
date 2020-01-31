@@ -6,6 +6,7 @@ public class WindowController {
 	
 	static ObservableList<String> message = null;
 	static boolean showDeleteButton;
+	
 	//If successOrFailureAlertBox is set to false, an alertbox with an error will show up instead.
 	static boolean successOrFailureAlertBox;
 	

@@ -27,8 +27,8 @@ import service.BusinessRuleBuilderImpl;
 import service.ClientClass;
 import service.ColumnService;
 import service.IDUtil;
-import service.PostgresGetColumns;
-import service.PostgresGetTables;
+import service.OracleGetColumns;
+import service.OracleGetTables;
 import service.PostgresInsertBusinessRule;
 import service.TableService;
 import service.WindowController;
@@ -53,7 +53,6 @@ public class InterEntityCompareRuleController {
 	private String constraint7 = "=>";
 	
 	private Button deleteRuleButton;
-	private boolean deleteButtonPressed;
 
 	private TableService tableService = new TableService();
 	private ColumnService columnService = new ColumnService();
@@ -102,8 +101,9 @@ public class InterEntityCompareRuleController {
 	@FXML
 	void chooseTable1(ActionEvent event) throws SQLException {
 		namesColumn1 = FXCollections.observableArrayList();
-		PostgresGetColumns postgresColumns = new PostgresGetColumns();
-		columnNames1 = postgresColumns.getColumnsPostgresTargetDb(chooseTable1.getValue());
+		
+		OracleGetColumns oracleColumns = new OracleGetColumns();
+		columnNames1 = oracleColumns.getColumnsOracleTargetDb(chooseTable1.getValue());
 		for (Column column : columnNames1) {
 			namesColumn1.add(column.getName());
 		}
@@ -113,8 +113,9 @@ public class InterEntityCompareRuleController {
 	@FXML
 	void chooseTable2(ActionEvent event) throws SQLException {
 		namesColumn2 = FXCollections.observableArrayList();
-		PostgresGetColumns postgresColumns = new PostgresGetColumns();
-		columnNames2 = postgresColumns.getColumnsPostgresTargetDb(chooseTable2.getValue());
+		
+		OracleGetColumns oracleColumns = new OracleGetColumns();
+		columnNames2 = oracleColumns.getColumnsOracleTargetDb(chooseTable2.getValue());
 
 		for (Column column : columnNames2) {
 			namesColumn2.add(column.getName());
@@ -150,8 +151,9 @@ public class InterEntityCompareRuleController {
 		chooseTriggerOrConstraint.setItems(triggerOrConstraint);
 		setConstraints();
 		namesTable = FXCollections.observableArrayList();
-		PostgresGetTables postgresTables = new PostgresGetTables();
-		tableNames = postgresTables.getTablesPostgresTargetDb();
+		
+		OracleGetTables oracleTables = new OracleGetTables();
+		tableNames = oracleTables.getTablesOracleTargetDb();
 		for (Table tabel : tableNames) {
 			namesTable.add(tabel.getName());
 		}

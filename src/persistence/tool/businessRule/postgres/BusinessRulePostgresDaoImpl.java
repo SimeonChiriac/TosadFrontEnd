@@ -57,7 +57,6 @@ public class BusinessRulePostgresDaoImpl implements BusinessRuleDao {
 				b.setTypeOfCode(rs.getString("TYPE_OF_CODE"));
 				b.setID(businessRuleID);
 				b.setRuleType(brtpdi.findByCode(rs.getString("BUSINESSRULETYPE_CODE")));
-//				b.setTypeOfConstraint(typeOfConstraint);
 			}
 
 		} catch (SQLException sqle) {
@@ -164,30 +163,10 @@ public class BusinessRulePostgresDaoImpl implements BusinessRuleDao {
 	}
 
 	@Override
-	public boolean update(BusinessRule b) {
-		try {
-
-			String strQuery = "update BUSINESSRULE SET ID = ?, BUSINESSRULETYPE_CODE = ?, TYPE_OF_CODE = ?, EXAMPLE = ?, CONSTRAINT_CODE = ?, TRIGGER_CODE = ?, NAAM = ? WHERE ID = ?";
-			PreparedStatement pstmt = conn.prepareStatement(strQuery);
-			pstmt.setInt(1, b.getID());
-			pstmt.setString(2, b.getRuleType().getCode());
-			pstmt.setString(3, b.getTypeOfCode());
-			pstmt.setString(4, b.getExample());
-			pstmt.setString(5, b.getConstraint());
-			pstmt.setString(6, b.getTrigger());
-			pstmt.setString(7, b.getNaam());
-			pstmt.setInt(8, b.getID());
-			pstmt.executeUpdate();
-			for (Value i : b.getDeValues()) {
-				vpdi.update(i);
-			}
-			
-
-			return true;
-		} catch (SQLException sqle) {
-			sqle.printStackTrace();
-			return false;
-		}
+	public void update(BusinessRule b) {
+		BusinessRuleDao brpdi = new BusinessRulePostgresDaoImpl();
+		brpdi.delete(b);
+		brpdi.save(b);
 	}
 
 	@Override

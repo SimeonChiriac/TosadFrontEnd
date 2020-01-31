@@ -28,8 +28,8 @@ import service.BusinessRuleBuilderImpl;
 import service.ClientClass;
 import service.ColumnService;
 import service.IDUtil;
-import service.PostgresGetColumns;
-import service.PostgresGetTables;
+import service.OracleGetColumns;
+import service.OracleGetTables;
 import service.PostgresInsertBusinessRule;
 import service.TableService;
 import service.WindowController;
@@ -64,7 +64,6 @@ public class TupleCompareRuleController {
 	private String constraint7 = "=>";
 	
 	private Button deleteRuleButton;
-	private boolean deleteButtonPressed;
 
 
 	private ObservableList<String> constraintTypes;
@@ -101,8 +100,9 @@ public class TupleCompareRuleController {
 	@FXML
 	void selectTable(ActionEvent event) throws SQLException {
 		namesColumn = FXCollections.observableArrayList();
-		PostgresGetColumns postgresColumns = new PostgresGetColumns();
-		columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
+		
+		OracleGetColumns oracleColumns = new OracleGetColumns();
+		columnNames = oracleColumns.getColumnsOracleTargetDb(chooseTable.getValue());
 		for (Column column : columnNames) {
 			namesColumn.add(column.getName());
 		}
@@ -139,8 +139,9 @@ public class TupleCompareRuleController {
 		setConstraints();
 		chooseTriggerOrConstraint.setItems(triggerOrConstraint);
 		namesTable = FXCollections.observableArrayList();
-		PostgresGetTables postgresTables = new PostgresGetTables();
-		tableNames = postgresTables.getTablesPostgresTargetDb();
+		
+		OracleGetTables oracleTables = new OracleGetTables();
+		tableNames = oracleTables.getTablesOracleTargetDb();
 		for (Table tabel : tableNames) {
 			namesTable.add(tabel.getName());
 		}

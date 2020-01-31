@@ -21,7 +21,6 @@ public class PostgresInsertBusinessRuleToolDb {
 	public static boolean insertBusinessRule(BusinessRule bRule) throws SQLException{
 
 			if (businessRule == null) {
-//				businessRule = new BusinessRule();
 				Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Tool", "postgres",
 						"S()nt5LogE");
 				Statement st = con.createStatement();

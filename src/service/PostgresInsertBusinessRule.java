@@ -14,4 +14,5 @@ public class PostgresInsertBusinessRule {
 		return toolDb.save(bRule);
 	}
 
+	
 }

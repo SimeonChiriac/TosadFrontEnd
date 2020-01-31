@@ -10,7 +10,6 @@ import domain.BusinessRuleType;
 import domain.Column;
 import domain.Message;
 import domain.Table;
-import domain.Value;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,8 +28,8 @@ import service.BusinessRuleBuilderImpl;
 import service.ClientClass;
 import service.ColumnService;
 import service.IDUtil;
-import service.PostgresGetColumns;
-import service.PostgresGetTables;
+import service.OracleGetColumns;
+import service.OracleGetTables;
 import service.PostgresInsertBusinessRule;
 import service.TableService;
 import service.WindowController;
@@ -53,7 +52,6 @@ public class AttributeListRuleController {
 
 	private ArrayList<Column> columns = new ArrayList<Column>();
 	
-	private String chosenConstraint;
 	private String constraint2 = "=";
 	private String constraint3 = ">";
 	private String constraint4 = "<";
@@ -62,7 +60,6 @@ public class AttributeListRuleController {
 	private String constraint7 = "=>";
 	
 	private Button deleteRuleButton;
-	private boolean deleteButtonPressed;
 
 	private ObservableList<String> constraintTypes;
 
@@ -123,8 +120,9 @@ public class AttributeListRuleController {
 		setConstraints();
 		chooseTriggerOrConstraint.setItems(triggerOrConstraint);
 		namesTable = FXCollections.observableArrayList();
-		PostgresGetTables postgresTables = new PostgresGetTables();
-		tableNames = postgresTables.getTablesPostgresTargetDb();
+		
+		OracleGetTables oracleTables = new OracleGetTables();
+		tableNames = oracleTables.getTablesOracleTargetDb();
 		for (Table tabel : tableNames) {
 			namesTable.add(tabel.getName());
 		}
@@ -154,8 +152,9 @@ public class AttributeListRuleController {
 	@FXML
 	void selectTable(ActionEvent event) throws SQLException {
 		namesColumn = FXCollections.observableArrayList();
-		PostgresGetColumns postgresColumns = new PostgresGetColumns();
-		columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
+		
+		OracleGetColumns oracleColumns = new OracleGetColumns();
+		columnNames = oracleColumns.getColumnsOracleTargetDb(chooseTable.getValue());
 		for (Column column : columnNames) {
 			namesColumn.add(column.getName());
 		}

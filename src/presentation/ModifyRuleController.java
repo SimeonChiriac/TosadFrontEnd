@@ -1,16 +1,12 @@
 package presentation;
 
 import java.io.IOException;
-import java.net.UnknownHostException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
-import domain.BusinessRule;
 import domain.BusinessRuleType;
 import domain.Column;
 import domain.Table;
-import domain.Value;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,16 +16,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import persistence.PostgresGetColumnNamesTargetDb;
-import service.ClientClass;
-import service.PostgresGetColumns;
-import service.PostgresGetTables;
+import service.OracleGetColumns;
+import service.OracleGetTables;
+
 
 public class ModifyRuleController {
 
     private String BusinessRuleType;
 
-    private String chosenConstraint;
     private String constraint2 = "=";
     private String constraint3 = ">";
     private String constraint4 = "<";
@@ -87,12 +81,11 @@ public class ModifyRuleController {
     public void initialize() throws IOException, SQLException {
         setConstraints();
         chooseConstraint.setValue(constraint2);
-//        PostgresGetTables postgresTables = new PostgresGetTables();
-//        tableNames = postgresTables.getTablesPostgresTargetDb();
-//        for (Table tabel : tableNames) {
-//            namesTable.add(tabel.getName());
-//            namesTableRule.add(tabel.getName());
-//        }
+		OracleGetTables oracleTables = new OracleGetTables();
+		tableNames = oracleTables.getTablesOracleTargetDb();
+		for (Table tabel : tableNames) {
+			namesTable.add(tabel.getName());
+		}
         chooseTable.setItems(namesTable);
         chooseTableRule.setItems(namesTableRule);
     }
@@ -109,11 +102,12 @@ public class ModifyRuleController {
     @FXML
     public void addColumns (ActionEvent event) throws IOException, SQLException {
         if(chooseTable.getValue() != null) {
-//            PostgresGetColumns postgresColumns = new PostgresGetColumns();
-//            columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
-//            for (Column column : columnNames) {
-//                namesColumn.add(column.getName());
-//            }
+    		OracleGetColumns oracleColumns = new OracleGetColumns();
+    		columnNames = oracleColumns.getColumnsOracleTargetDb(chooseTable.getValue());
+    		for (Column column : columnNames) {
+    			namesColumn.add(column.getName());
+    		}
+
             chooseColumn.setItems(namesColumn);
         }
     }
@@ -121,11 +115,12 @@ public class ModifyRuleController {
     @FXML
     public void addColumnRule (ActionEvent event) throws IOException, SQLException {
         if(chooseTableRule.getValue() != null) {
-//            PostgresGetColumns postgresColumns = new PostgresGetColumns();
-//            columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
-//            for (Column column : columnNames) {
-//                namesColumn.add(column.getName());
-//            }
+    		OracleGetColumns oracleColumns = new OracleGetColumns();
+    		columnNames = oracleColumns.getColumnsOracleTargetDb(chooseTable.getValue());
+    		for (Column column : columnNames) {
+    			namesColumn.add(column.getName());
+    		}
+
             chooseColumnRule.setItems(namesColumnRule);
         }
     }
@@ -158,12 +153,7 @@ public class ModifyRuleController {
     }
 
     public void generateRule() throws IOException, SQLException{
-        System.out.println("in generate rule");
         ruleType.setCode("AOTH");
-
-        ArrayList<Value> values = new ArrayList<Value>();
-        ArrayList<Table> tableNames = new ArrayList<Table>();
-        ArrayList<Column> columnNames = new ArrayList<Column>();
 
     }
 }

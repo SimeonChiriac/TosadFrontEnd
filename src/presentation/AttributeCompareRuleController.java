@@ -28,8 +28,8 @@ import service.BusinessRuleBuilderImpl;
 import service.ClientClass;
 import service.ColumnService;
 import service.IDUtil;
-import service.PostgresGetColumns;
-import service.PostgresGetTables;
+import service.OracleGetColumns;
+import service.OracleGetTables;
 import service.PostgresInsertBusinessRule;
 import service.TableService;
 import service.WindowController;
@@ -72,7 +72,6 @@ public class AttributeCompareRuleController {
 	private ObservableList<String> namesColumn;
 
 	private Button deleteRuleButton;
-	private boolean deleteButtonPressed;
 
 	@FXML
 	private ComboBox<String> chooseTable;
@@ -105,8 +104,9 @@ public class AttributeCompareRuleController {
 	@FXML
 	void selectTable(ActionEvent event) throws SQLException {
 		namesColumn = FXCollections.observableArrayList();
-		PostgresGetColumns postgresColumns = new PostgresGetColumns();
-		columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
+		
+		OracleGetColumns oracleColumns = new OracleGetColumns();
+		columnNames = oracleColumns.getColumnsOracleTargetDb(chooseTable.getValue());
 		for (Column column : columnNames) {
 			namesColumn.add(column.getName());
 		}
@@ -149,8 +149,8 @@ public class AttributeCompareRuleController {
 		setConstraints();
 		chooseTriggerOrConstraint.setItems(triggerOrConstraint);
 		namesTable = FXCollections.observableArrayList();
-		PostgresGetTables postgresTables = new PostgresGetTables();
-		tableNames = postgresTables.getTablesPostgresTargetDb();
+		OracleGetTables oracleTables = new OracleGetTables();
+		tableNames = oracleTables.getTablesOracleTargetDb();
 		for (Table tabel : tableNames) {
 			namesTable.add(tabel.getName());
 		}
@@ -234,7 +234,7 @@ public class AttributeCompareRuleController {
 			BusinessRuleBuilderImpl businessBuilder = new BusinessRuleBuilderImpl();
 			businessBuilder.addColumn(chooseColumn.getValue());
 			businessBuilder.addTable(chooseTable.getValue());
-			businessBuilder.addValue(enteredValue.getText(), "value", (int) generateID.getNextId());
+			businessBuilder.addValue(enteredValue.getText(), "maxValue", (int) generateID.getNextId());
 			businessBuilder.addValue(chosenConstraint, "operator", (int) generateID.getNextId());
 			businessBuilder.setConstraintOrTrigger(chooseTriggerOrConstraint.getValue());
 			businessBuilder.setRuleType(ruleType);

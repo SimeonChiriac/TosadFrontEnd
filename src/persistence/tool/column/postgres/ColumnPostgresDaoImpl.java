@@ -84,6 +84,7 @@ public class ColumnPostgresDaoImpl implements ColumnDao {
 			}
 
 		} catch (SQLException sqle) {
+			sqle.printStackTrace();
 
 		}
 		return false;

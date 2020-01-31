@@ -4,14 +4,12 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import domain.BusinessRule;
 import domain.BusinessRuleType;
 import domain.Column;
 import domain.Message;
 import domain.Table;
-import domain.Value;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,13 +19,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import persistence.PostgresGetColumnNamesTargetDb;
 import service.BusinessRuleBuilderImpl;
 import service.ClientClass;
 import service.ColumnService;
 import service.IDUtil;
 import service.PostgresGetColumns;
-import service.PostgresGetTables;
 import service.PostgresInsertBusinessRule;
 import service.TableService;
 
@@ -147,35 +143,33 @@ public class AttributeOtherRuleController {
 
     @FXML
     public void errorCheck (ActionEvent event) throws IOException, SQLException{
-//        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-//        Alert confirmAlert = new Alert (Alert.AlertType.CONFIRMATION);
-//
-//        if(chooseTable.getValue() == null || chooseColumn.getValue() == null) {
-//            errorAlert.setHeaderText("No table and/or column selected");
-//            errorAlert.showAndWait();
-//        }
-//        else if(checkInBetween.isSelected() || checkNotInBetween.isSelected()) {
-//            if(value1.getText().isEmpty() || value2.getText().isEmpty()) {
-//                errorAlert.setHeaderText("No values entered.");
-//                errorAlert.showAndWait();
-//            }
-//            else {
-//                this.generateRule();
-//            }
-//        }
-//        else if(value1.getText().isEmpty()) {
-//            errorAlert.setHeaderText("fill in a value");
-//            errorAlert.showAndWait();
-//        }
-//        else if(ruleNameId.getText().isEmpty()) {
-//            errorAlert.setHeaderText("fill in a rule name");
-//            errorAlert.showAndWait();
-//        }
-//        else {
-//            confirmAlert.setHeaderText("goed gegaan");
-//            confirmAlert.show();
-//            this.generateRule();
-//        }
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        Alert confirmAlert = new Alert (Alert.AlertType.CONFIRMATION);
+
+        if(chooseTable.getValue() == null || chooseColumn.getValue() == null) {
+            errorAlert.setHeaderText("No table and/or column selected");
+            errorAlert.showAndWait();
+        }
+        else if(checkInBetween.isSelected() || checkNotInBetween.isSelected()) {
+            if(value1.getText().isEmpty() || value2.getText().isEmpty()) {
+                errorAlert.setHeaderText("No values entered.");
+                errorAlert.showAndWait();
+            }
+            else {
+            }
+        }
+        else if(value1.getText().isEmpty()) {
+            errorAlert.setHeaderText("fill in a value");
+            errorAlert.showAndWait();
+        }
+        else if(ruleNameId.getText().isEmpty()) {
+            errorAlert.setHeaderText("fill in a rule name");
+            errorAlert.showAndWait();
+        }
+        else {
+            confirmAlert.setHeaderText("goed gegaan");
+            confirmAlert.show();
+        }
     }
 
 	@FXML

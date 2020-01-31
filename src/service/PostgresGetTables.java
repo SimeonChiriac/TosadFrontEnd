@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import domain.Table;
-import persistence.OracleGetTableNamesTargetDb;
 import persistence.PostgresGetTableNamesTargetDb;
 import persistence.PostgresGetTableNamesToolDb;
 
@@ -17,10 +16,6 @@ public class PostgresGetTables {
 
 	public ArrayList<Table> getTablesPostgresToolDb() throws SQLException {
 		return PostgresGetTableNamesToolDb.getTableNames();
-	}
-
-	public ArrayList<Table> getTablesOracleTargetDb() throws SQLException {
-		return OracleGetTableNamesTargetDb.getTableNames();
 	}
 
 }

@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 public class ClientClass {
 	
 	public void sendBusinessRule(Message message) throws UnknownHostException, IOException {
-		Socket s = new Socket("192.168.1.73", 4711);
+		Socket s = new Socket("145.89.166.25", 4711);
 		PrintWriter pw = new PrintWriter(s.getOutputStream());
 		Gson gson = new GsonBuilder().disableHtmlEscaping().create();
 		

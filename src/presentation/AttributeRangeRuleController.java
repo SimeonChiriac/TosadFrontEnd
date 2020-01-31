@@ -28,8 +28,8 @@ import service.BusinessRuleBuilderImpl;
 import service.ClientClass;
 import service.ColumnService;
 import service.IDUtil;
-import service.PostgresGetColumns;
-import service.PostgresGetTables;
+import service.OracleGetColumns;
+import service.OracleGetTables;
 import service.PostgresInsertBusinessRule;
 import service.TableService;
 import service.WindowController;
@@ -85,7 +85,75 @@ public class AttributeRangeRuleController {
 	private ChoiceBox<String> chooseTriggerOrConstraint;
 
 	private Button deleteRuleButton;
-	private boolean deleteButtonPressed;
+	
+	@FXML
+	void generateRule(ActionEvent event) throws UnknownHostException, IOException, SQLException {
+		checkForErrors();
+
+		if (WindowController.getSuccessAlertBox() == true) {
+
+			ruleType.setCode("ARNG");
+
+			Table table = new Table();
+			table.setName(chooseTable.getValue());
+			tables.add(table);
+
+			Column column = new Column();
+			column.setName(chooseColumn.getValue());
+			columns.add(column);
+
+			tableService.saveTables(tables);
+			columnService.saveColumns(columns);
+
+			BusinessRule bRule = new BusinessRule();
+
+			BusinessRuleBuilderImpl businessBuilder = new BusinessRuleBuilderImpl();
+			businessBuilder.addColumn(chooseColumn.getValue());
+			businessBuilder.addTable(chooseTable.getValue());
+			businessBuilder.addValue(rangeFrom.getText(), "minValue", (int) generateID.getNextId());
+			businessBuilder.addValue(rangeTo.getText(), "maxValue", (int) generateID.getNextId());
+			businessBuilder.addValue(ruleOperator.getValue(), "operator", (int) generateID.getNextId());
+			businessBuilder.setConstraintOrTrigger(chooseTriggerOrConstraint.getValue());
+			businessBuilder.setRuleType(ruleType);
+			businessBuilder.setID((int) generateID.getNextId());
+			businessBuilder.setNaam(ruleName.getText());
+
+			bRule = businessBuilder.createBusinessRule();
+
+			
+			PostgresInsertBusinessRule insert = new PostgresInsertBusinessRule();
+			boolean insertCompleted = insert.insertBusinessRule(bRule);
+			System.out.println(insertCompleted);
+
+
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			Message message = new Message();
+			message.setBusinessRuleID(bRule.getID());
+			message.setTypeOfSQL(bRule.getConstraintOrTrigger());
+
+			sendRule(message);
+
+			Alert confirmAlert = new Alert(Alert.AlertType.INFORMATION);
+			confirmAlert.setTitle("Business Rule Generator");
+			confirmAlert.setHeaderText("Succes!");
+			confirmAlert.setContentText("Your business rule was generated and saved succesfully in the database");
+			confirmAlert.showAndWait();
+
+		}
+
+		if (WindowController.getSuccessAlertBox() == false) {
+			Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+			errorAlert.setContentText("you either haven't selected and/or filled in value or minValue > maxValue");
+			errorAlert.showAndWait();
+		}
+		;
+
+	}
 
 	public void initialize() throws IOException, SQLException {
 
@@ -102,8 +170,9 @@ public class AttributeRangeRuleController {
 		ruleOperator.setItems(operator);
 		chooseTriggerOrConstraint.setItems(triggerOrConstraint);
 		namesTable = FXCollections.observableArrayList();
-		PostgresGetTables postgresTables = new PostgresGetTables();
-		tableNames = postgresTables.getTablesPostgresTargetDb();
+		
+		OracleGetTables oracleTables = new OracleGetTables();
+		tableNames = oracleTables.getTablesOracleTargetDb();
 		for (Table tabel : tableNames) {
 			namesTable.add(tabel.getName());
 		}
@@ -146,8 +215,9 @@ public class AttributeRangeRuleController {
 	@FXML
 	void selectTable(ActionEvent event) throws SQLException {
 		namesColumn = FXCollections.observableArrayList();
-		PostgresGetColumns postgresColumns = new PostgresGetColumns();
-		columnNames = postgresColumns.getColumnsPostgresTargetDb(chooseTable.getValue());
+
+		OracleGetColumns oracleColumns = new OracleGetColumns();
+		columnNames = oracleColumns.getColumnsOracleTargetDb(chooseTable.getValue());
 		for (Column column : columnNames) {
 			namesColumn.add(column.getName());
 		}
@@ -156,7 +226,8 @@ public class AttributeRangeRuleController {
 	}
 
 	private void checkForErrors() {
-
+		WindowController.setSuccessAlertBox(true);
+		
 		if (chooseTable.getValue() == null || chooseColumn.getValue() == null) {
 			WindowController.setSuccessAlertBox(false);
 		}
@@ -171,7 +242,7 @@ public class AttributeRangeRuleController {
 		}
 
 		try {
-			System.out.println("Heyhoi");
+
 			int minValue = Integer.parseInt(rangeFrom.getText());
 			int maxValue = Integer.parseInt(rangeTo.getText());
 
@@ -184,78 +255,9 @@ public class AttributeRangeRuleController {
 			WindowController.setSuccessAlertBox(false);
 		}
 
-		WindowController.setSuccessAlertBox(true);
-
 	}
 
-	@FXML
-	void generateRule(ActionEvent event) throws UnknownHostException, IOException, SQLException {
-		checkForErrors();
-
-		System.out.println("wtf? waarom is die: " + WindowController.getSuccessAlertBox());
-
-		if (WindowController.getSuccessAlertBox() == true) {
-
-			ruleType.setCode("ARNG");
-
-			Table table = new Table();
-			table.setName(chooseTable.getValue());
-			tables.add(table);
-
-			Column column = new Column();
-			column.setName(chooseColumn.getValue());
-			columns.add(column);
-
-			tableService.saveTables(tables);
-			columnService.saveColumns(columns);
-
-			BusinessRule bRule = new BusinessRule();
-
-			BusinessRuleBuilderImpl businessBuilder = new BusinessRuleBuilderImpl();
-			businessBuilder.addColumn(chooseColumn.getValue());
-			businessBuilder.addTable(chooseTable.getValue());
-			businessBuilder.addValue(rangeFrom.getText(), "minValue", (int) generateID.getNextId());
-			businessBuilder.addValue(rangeTo.getText(), "maxValue", (int) generateID.getNextId());
-			businessBuilder.addValue(ruleOperator.getValue(), "operator", (int) generateID.getNextId());
-			businessBuilder.setConstraintOrTrigger(chooseTriggerOrConstraint.getValue());
-			businessBuilder.setRuleType(ruleType);
-			businessBuilder.setID((int) generateID.getNextId());
-			businessBuilder.setNaam(ruleName.getText());
-
-			bRule = businessBuilder.createBusinessRule();
-
-			PostgresInsertBusinessRule insert = new PostgresInsertBusinessRule();
-			boolean insertCompleted = insert.insertBusinessRule(bRule);
-			System.out.println(insertCompleted);
-
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-
-//			Message message = new Message();
-//			message.setBusinessRuleID(bRule.getID());
-//			message.setTypeOfSQL(bRule.getConstraintOrTrigger());
-//
-//			sendRule(message);
-
-			Alert confirmAlert = new Alert(Alert.AlertType.INFORMATION);
-			confirmAlert.setTitle("Business Rule Generator");
-			confirmAlert.setHeaderText("Succes!");
-			confirmAlert.setContentText("Your business rule was generated and saved succesfully in the database");
-			confirmAlert.showAndWait();
-
-		}
-
-		if (WindowController.getSuccessAlertBox() == false) {
-			Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-			errorAlert.setContentText("you either haven't selected and/or filled in value or minValue > maxValue");
-			errorAlert.showAndWait();
-		}
-		;
-
-	}
+	
 
 	private void sendRule(Message message) throws UnknownHostException, IOException {
 		ClientClass client = new ClientClass();

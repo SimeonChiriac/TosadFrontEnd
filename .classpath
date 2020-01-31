@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/RichRail/src/gson-2.8.6.jar"/>
 	<classpathentry kind="lib" path="/Users/simeon/Desktop/desktop/tosad/postgresql-42.2.9.jar"/>
+	<classpathentry kind="lib" path="/Users/simeon/Downloads/ojdbc6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
